@@ -1,24 +1,32 @@
+import Landing from "../../views/Home";
 import Card from "../Card/Card";
-import { CardsContainer } from "../Styles";
+import style from "./Cards.module.css";
 
 export default function Cards(props) {
   const { characters } = props;
 
   return (
-    <CardsContainer>
-      {characters.map((char) => (//Card(char, onClose???)}
-        
+    <div className={style.CardsContainer}>
+      {characters.length === 0 ? (
+       <Landing />
+       
+      ) : (
+        characters.map((char) => (
           <Card
-            key={char.id}
-            onClose={() => window.alert('Emulamos que se cierra la card')}
-            name={char.name}
-            species={char.species}
-            gender={char.gender}
-            image={char.image}
-          />
-        )
+          key={char.id}
+          id={char.id}
+          onClose={() => props.onClose(char.id)}
+          name={char.name}
+          species={char.species}
+          gender={char.gender}
+          image={char.image}
+        />
+        ))
       )}
+          
+    </div>
       
-    </CardsContainer>
   );
+      
+  
 }

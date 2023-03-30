@@ -1,4 +1,5 @@
-.searchcontainer{
+/* 
+ .searchcontainer{
     margin: 5px;
     height: 30px;
     display: flex;
@@ -33,13 +34,15 @@
     align-items: center;
     cursor: pointer;
     transition: 0.8s;
+    margin-left: 0px;
 }
 
-.searchinput:hover  {
-    width: 400px;
-    animation: forwards;
+.searchcontainer:hover .searchinput {
+    width: 700px;
+    animation: alternate;
     background: #ddd9e0;
-    
 }
 
-
+.searchcontainer:hover .searchbtn {
+    background: #b1a9bc;
+} */

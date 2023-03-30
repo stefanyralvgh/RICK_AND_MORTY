@@ -1,13 +1,23 @@
-import { CardContenedor, CloseButtonCard, Name, Species, Gender } from "../Styles";
+import { CardContenedor, 
+  CloseButtonCard,
+  Species,
+  Gender,
+  ImgCardContenedor,
+  CharId,
+  NameLink } from '../Styles';
+
 
 export default function Card(props) {
   return (
     <CardContenedor>
+          <CharId>{props.id}</CharId>
           <CloseButtonCard onClick={props.onClose}>X</CloseButtonCard>
-          <Name>{props.name}</Name>
+            <NameLink to={`/detail/${props.id}`}>
+            <h2>{props.name}</h2>
+          </NameLink>
           <Species>{props.species}</Species>
           <Gender>{props.gender}</Gender>
-          <img src={props.image} alt="foto del personaje" />
+          <ImgCardContenedor src={props.image} alt="foto del personaje" />
     </CardContenedor>
      
   );
