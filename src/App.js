@@ -2,14 +2,38 @@ import './App.css';
 import Cards from './components/Cards/Cards';
 import Nav from './components/Nav/Nav';
 import About from './views/About';
-import Landing from './views/Landing';
+import Form from './views/Form/Form';
 import Detail from './views/Detail';
 import Error from './views/Error';
-import { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
 function App () {
+  const { pathname } = useLocation();
   const [characters, setCharacters] = useState([]);
+  const [access, setAccess] = useState(false);
+  const navigate = useNavigate();
+  const email = 'ejemplo@mail.com';
+  const password = '1password';
+
+  
+  useEffect(() => {
+    !access && navigate('/');
+ }, [access, navigate]);
+
+
+function login(userData) {
+   if (userData.password === password && userData.email === email) {
+      setAccess(true);
+      navigate('/home');
+   }
+}
+
+function logout(){
+  setAccess(false);
+  navigate('/');
+}
+
 
   function onClose(id) {
       setCharacters(characters.filter((element) => element.id !== id));
@@ -36,14 +60,14 @@ function App () {
   }
   return (
     <div className='App' style={{ padding: '25px' }}>
-      <Nav onSearch={onSearch} random={random}/>
+     {pathname !== '/' && <Nav onSearch={onSearch} random={random} logout={logout}/>}
       <hr />
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route exact path="/home" element={<Cards characters={characters} onClose={onClose} />} />
+        <Route path="/" element={<Form login= {login}/>} />
+        <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
         <Route path="/detail/:detailId" element={<Detail />} />
         <Route path="/about" element={<About />} />   
-        <Route path='/*' element={<Error />} />    
+        <Route path='/*' element={<Error />} />   
       </Routes>
     </div>
   );

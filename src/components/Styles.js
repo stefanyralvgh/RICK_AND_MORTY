@@ -70,17 +70,18 @@ export const SearchContainer = styled.div `
   cursor: pointer;
   &:hover {
     ${SearchInput} {
-        width: 150%;
-        animation: alternate ;
-        transition: 1s;
+        width: 40%;
+        /* transition: width 30s; */
+        transition:1s;
+        animation: ease ;
         background: #ddd9e0;
         color: blueviolet;
     }
 
     ${SearchImage}{
-        width: 170px;
-        margin-top: 7px;
-        transition: 1.1.s;
+        width: 160px;
+        margin-top: 12px;
+        transition: 1s;
     }
   }
 
@@ -324,6 +325,6 @@ export const ErrorContainer = styled.div `
     }
 
     img {
-        margin-top: 50px;
+        margin-top: 30px;
     }
 `;
