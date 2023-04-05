@@ -3,7 +3,7 @@ const validation = (input) => {
     // Validación del campo de usuario
     if (!input.email) {
       errors.email1 = "E-mail vacío";
-    } else if (!/^[\w-]+@([\w-]+\.)+[\w-]{2,4}$/.test(input.email)) {
+    } else if (!/^[\w-]+@([\w-]+\.)+[\w-]{3}$/.test(input.email)) {
       errors.email2 = "E-mail inválido";
     } else if (input.email.length > 35) {
       errors.email3 = "El nombre de usuario no puede tener más de 35 caracteres";

@@ -1,16 +1,16 @@
 import SearchBar from "../SearchBar/SearchBar";
 
-import { NavContainer, HomeLink, AboutLink } from "../Styles";
+import { NavContainer, HomeLink, AboutLink, LogOutButton } from "./NavStyles";
 
 
 export default function Nav(props) {
   
   return (   
     <NavContainer>
-        <SearchBar onSearch={props.onSearch} random={props.random} onClick= {props.logout}/>
         <HomeLink to="/home">HOME</HomeLink>
         <AboutLink to="/about">ABOUT</AboutLink>  
-        <button onClick={props.logout}>LOGOUT</button>
+        <SearchBar onSearch={props.onSearch} random={props.random} onClick= {props.logout}/>
+        <LogOutButton onClick={props.logout}>LOGOUT</LogOutButton>
     </NavContainer>
   );
 }

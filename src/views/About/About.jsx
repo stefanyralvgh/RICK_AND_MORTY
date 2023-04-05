@@ -1,4 +1,4 @@
-import { AboutContainer, AboutTitle, AboutSpan } from "../components/Styles";
+import { AboutContainer, AboutTitle, AboutSpan } from "./AboutStyles";
 
 export default function About() {
   return (
@@ -11,18 +11,21 @@ export default function About() {
         di cuenta de que no era mi pasion, pero por suerte la encontré en el
         mundo de la tecnología.
       </p>
+      <br />
       <p>
         Desde entonces, me he dedicado a estudiar programación y puedo decir con
         seguridad que disfruto mucho lo que hago. Me encanta aprender cosas
         nuevas y enfrentar desafíos que me permitan seguir creciendo en mi
         carrera.
       </p>
+      <br />
       <p>
         Además de la programación, tengo un gran amor por los animales y la
         naturaleza, y disfruto pasando tiempo al aire libre. Creo que mi pasión
         por la naturaleza me da una perspectiva única y me ayuda a pensar de
         manera creativa en la solución de problemas.
       </p>
+      <br />
       <p>
         Mis habilidades como odontóloga también me han sido útiles en mi carrera
         como programadora. Soy responsable y detallista, lo que me permite crear
@@ -31,6 +34,7 @@ export default function About() {
         efectiva, habilidades que son cruciales para trabajar en equipo y
         colaborar en proyectos de programación.
       </p>
+      <br />
       <p>
         Estoy emocionada por las oportunidades que el mundo de la tecnología me
         ofrece y estoy ansiosa por seguir creciendo en mi carrera.

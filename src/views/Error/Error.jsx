@@ -1,4 +1,4 @@
-import { ErrorContainer } from "../components/Styles";
+import { ErrorContainer } from "./ErrorStyles";
 
 export default function Error () {
     return(

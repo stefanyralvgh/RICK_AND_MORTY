@@ -5,7 +5,7 @@ import {
   DetailTitles,
   DetailButton,
   DetailTexts,
-} from "../components/Styles";
+} from "./DetailStyles";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -77,7 +77,7 @@ export default function Detail() {
             </DetailInfo>
             <DetailImage src={character.image} alt={`Imagen de ${character.name}`} />
         </DetailContainer>
-        <DetailButton onClick={() => navigate('/home')}>⤺Back To Home</DetailButton>
+        <DetailButton onClick={() => navigate('/home')}>⤺ Home</DetailButton>
     </div>
 );
 }

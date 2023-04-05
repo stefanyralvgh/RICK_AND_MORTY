@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import {
   SearchInput,
   SearchBtn,
-  SearchImage,
+  // SearchImage,
   RandomBtn,
   SearchContainer,
-} from "../Styles";
+} from "./SearchBarStyles";
 
 export default function SearchBar(props) {
   const [inputContent, setInputContent] = useState("");
@@ -30,7 +30,7 @@ export default function SearchBar(props) {
  
   return (
       <SearchContainer>
-        <SearchImage src="./Images/RyM-Navbar.png" alt="Rick y Morty" />
+        {/* <SearchImage src="./Images/RyM-Navbar.png" alt="Rick y Morty" /> */}
         <SearchInput
           type="search"
           placeholder="ID del personaje"

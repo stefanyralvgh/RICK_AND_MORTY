@@ -1,6 +1,6 @@
 import { useState } from "react";
 import validation from "./Validation.js";
-import { HomeImage } from "../../components/Styles";
+import { FormContainer, FormButton, FormLabel, FormInput, FormImage, FormErrors } from "./FormStyles.js";
 
 export default function Form(props) {
   const [userData, setUserData] = useState({
@@ -26,40 +26,49 @@ export default function Form(props) {
   }
 
   return (
-   <div>
-      <form onSubmit={submitHandler}>
+   <FormContainer>
+        <form onSubmit={submitHandler}>
         <div>
-          <label htmlFor="email"> E-mail: </label>
-          <input
+          <FormImage src="./Images/RyM-Navbar.png" alt="Rick y Morty" />
+          <FormInput
             type="text"
             name="email"
             onChange={handleInputChange}
             value={userData.email}
           />
+          <FormLabel htmlFor="email"> E-mail: </FormLabel>
           {errors.email1 ? (
-                        <p>{errors.email1}</p>
-                    ) : errors.email2 ? (
-                        <p>{errors.email2}</p>
-                    ) : (
-                        <p>{errors.email3}</p>
-                    )}
+            <FormErrors>{errors.email1}</FormErrors>
+            ) : errors.email2 ? (
+              <FormErrors>{errors.email2}</FormErrors>
+              ) : (
+                <FormErrors>{errors.email3}</FormErrors>
+                )}
+        
         </div>
+        <br />
+        <br />
         <div>
-          <label htmlFor="password"> Password: </label>
-          <input
+          
+          <FormInput
             type="password"
             name="password"
             onChange={handleInputChange}
             value={userData.password}
-          /> {errors.password1 ? (
-            <p>{errors.password1}</p>
+          /> 
+           <FormLabel htmlFor="password"> Password: </FormLabel>
+          {errors.password1 ? (
+            <FormErrors>{errors.password1}</FormErrors>
         ) : (
-            <p>{errors.password2}</p>
+            <FormErrors>{errors.password2}</FormErrors>
         )}
+       
         </div>
-        <button type="submit" onClick={submitHandler}>Login</button>
+        <br />
+        <FormButton type="submit" onClick={submitHandler}>Login</FormButton>
       </form>
-      <HomeImage src="./Images/RYM.png" alt="Rick y Morty" />
-    </div>
+      <FormButton type="submit">Sign Up</FormButton>
+      {/* <HomeImage src="./Images/RYM.png" alt="Rick y Morty" /> */}
+    </FormContainer>
   );
 }

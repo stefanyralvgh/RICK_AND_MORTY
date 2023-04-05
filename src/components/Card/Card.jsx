@@ -1,10 +1,11 @@
+// import { Link } from 'react-router-dom';
 import { CardContenedor, 
   CloseButtonCard,
   Species,
   Gender,
   ImgCardContenedor,
   CharId,
-  NameLink } from '../Styles';
+  NameLink } from './CardStyles';
 
 
 export default function Card(props) {

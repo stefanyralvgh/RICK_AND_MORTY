@@ -1,10 +1,10 @@
 import './App.css';
 import Cards from './components/Cards/Cards';
 import Nav from './components/Nav/Nav';
-import About from './views/About';
+import About from './views/About/About';
 import Form from './views/Form/Form';
-import Detail from './views/Detail';
-import Error from './views/Error';
+import Detail from './views/Detail/Detail';
+import Error from './views/Error/Error';
 import { useState, useEffect } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 
@@ -66,8 +66,8 @@ function logout(){
         <Route path="/" element={<Form login= {login}/>} />
         <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
         <Route path="/detail/:detailId" element={<Detail />} />
-        <Route path="/about" element={<About />} />   
-        <Route path='/*' element={<Error />} />   
+        <Route path="/about" element={<About />} /> 
+        <Route path="*" element= {<Error />} />
       </Routes>
     </div>
   );

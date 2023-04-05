@@ -1,4 +1,4 @@
-import Landing from "../../views/Home";
+import Landing from "../../views/Home/Home";
 import Card from "../Card/Card";
 import style from "./Cards.module.css";
 
