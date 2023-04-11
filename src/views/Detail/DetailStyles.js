@@ -33,14 +33,15 @@ export const DetailImage = styled.img`
 
 export const DetailButton = styled.button`
   
-  position: fixed;
+/* position: fixed;
 bottom: 10px;
-right: 10px;
+right: 10px; */
 
 
   padding: 10px 20px;
   display: flex;
-  flex: start;
+  margin: auto;
+  margin-top: 20px;
   padding: 0.5rem;
   font-size: smaller;
   border-radius: 5px;

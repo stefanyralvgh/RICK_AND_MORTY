@@ -6,7 +6,10 @@ import Form from './views/Form/Form';
 import Detail from './views/Detail/Detail';
 import Error from './views/Error/Error';
 import { useState, useEffect } from 'react';
+import Favorites from './views/Favorites/Favorites';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { deleteFavs } from './redux/actions/actions';
 
 function App () {
   const { pathname } = useLocation();
@@ -15,6 +18,8 @@ function App () {
   const navigate = useNavigate();
   const email = 'ejemplo@mail.com';
   const password = '1password';
+  const dispatch =useDispatch();
+
 
   
   useEffect(() => {
@@ -37,6 +42,7 @@ function logout(){
 
   function onClose(id) {
       setCharacters(characters.filter((element) => element.id !== id));
+      dispatch(deleteFavs(id));
     };
 
 
@@ -65,6 +71,7 @@ function logout(){
       <Routes>
         <Route path="/" element={<Form login= {login}/>} />
         <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
+        <Route exact path="/favorites" element={<Favorites />}></Route>
         <Route path="/detail/:detailId" element={<Detail />} />
         <Route path="/about" element={<About />} /> 
         <Route path="*" element= {<Error />} />

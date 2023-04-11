@@ -22,10 +22,11 @@ export const SearchInput = styled.input `
   height: 40px;
   padding: 15px 20px;
   border-color: #b1a9bc;
-  margin-left:600px;
+  /* margin-left:200px; */
   border-radius: 30px 0px 0px 30px;
   transition: 1s;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  
 
   @media screen and (max-width: 767px) {
     display: flex;
@@ -66,9 +67,9 @@ export const RandomBtn = styled.button `
   cursor: pointer;
 
   img {
-    height: 67px;
+    height: 70px;
     &:hover{
-        height: 80px;
+        height: 67px;
     }
   }
 
@@ -81,7 +82,7 @@ export const SearchContainer = styled.div `
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right:25px;
+  margin-right:200px;
   cursor: pointer;
   &:hover {
     ${SearchInput} {
@@ -92,13 +93,13 @@ export const SearchContainer = styled.div `
         color: blueviolet;
     }
    
-    ${RandomBtn} {
+    /* ${RandomBtn} {
         img{
-          height: 80px;
+          height: 67px;
         }
         transition:1s;
         animation: ease ;
-    }
+    } */
   }
 
   @media screen and (max-width: 767px) {

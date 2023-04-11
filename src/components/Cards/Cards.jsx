@@ -1,4 +1,4 @@
-import Landing from "../../views/Home/Home";
+import Home from "../../views/Home/Home";
 import Card from "../Card/Card";
 import style from "./Cards.module.css";
 
@@ -8,7 +8,7 @@ export default function Cards(props) {
   return (
     <div className={style.CardsContainer}>
       {characters.length === 0 ? (
-       <Landing />
+       <Home />
        
       ) : (
         characters.map((char) => (

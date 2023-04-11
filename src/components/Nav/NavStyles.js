@@ -41,6 +41,21 @@ export const AboutLink = styled(Link)
     }
 `;
 
+export const FavsLink = styled(Link)`
+    color: #41225e;
+    text-decoration: none;
+    height: 25px;
+    width: 90px;
+    border-radius: 20px;
+    background-color: #dccdf8;
+    margin: auto;
+    margin-left: 17px;
+   
+
+    @media screen and (max-width: 767px) {
+      margin-left:12px;
+    }
+`
 
 
 export const LogOutButton = styled.button`
@@ -49,15 +64,14 @@ export const LogOutButton = styled.button`
   right: 0;
   padding: 0.5rem;
   border-radius: 5px;
-  border: none;
+  border: solid;
   color: white;
-  font-size: 11px ;
+  font-size: 9px ;
   cursor: pointer;
   background-color:transparent ;
-  
-  
+   
 
   &:hover {
-    font-size:10px;
+    font-size:8px;
 }
 `;

@@ -11,8 +11,34 @@ export const CharId = styled.h2 `
     border-radius: 40px;
     width: 25px;
     height: 25px;
+    margin: 0 auto;
+    text-align: center;
    
 `;
+
+export const CloseButtonCard = styled.button `
+    border-color: transparent;
+    background-color: #8b7f9c;
+    color: #8b7f9c; 
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    margin: 9px ; 
+    border: none;
+    
+`;
+
+
+export const FavButtonCard = styled.button `
+    border-color: transparent;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    cursor: pointer;
+     
+`;
+
 
 export const NameLink = styled(Link) 
 `
@@ -27,18 +53,24 @@ export const NameLink = styled(Link)
 export const Species = styled.h2 `
     font-weight: lighter;
     color: #4e2970;
+    float: left;
+    margin-left: 60px;
 `;
 
 
 export const Gender = styled.h2 `
     font-weight: lighter;
     color: #4e2970;
+    float: right;
+    margin-right: 60px;
 `;
 
 
 export const ImgCardContenedor = styled.img `
     filter: blur(0.4px);
     border-radius: 50%;
+    max-width: 280px;
+    max-height: 280px;
   
  
 `;
@@ -53,6 +85,7 @@ export const CardContenedor = styled.div `
     font-size: 13px;
     text-align: center;
     position: relative;
+    max-width: 18.8rem;
     color:#271438 ;
     &:hover {
         background: rgba(255, 255, 255, 0);
@@ -74,26 +107,25 @@ export const CardContenedor = styled.div `
                 color: #1d0f2a ;
                 background-color: #dccdf8 ;
         }
+         
+        
 }
-    &:hover button {
-        color:#8b7f9c;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        margin: 9px ;
-        background-color: transparent;
-        border: none;
-        color: whitesmoke;
-        font-weight: bold;
-        cursor: pointer;
-    }
+    &:hover 
+        
+        ${CloseButtonCard} {
+            color:#8b7f9c;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            margin: 9px ;
+            background-color: transparent;
+            border: none;
+            color: whitesmoke;
+            font-weight: bold;
+            cursor: pointer;
+        }
 `;
 
-export const CloseButtonCard = styled.button `
-    border-color: transparent;
-    background-color: #8b7f9c;
-    color: #8b7f9c; 
-`;
 
 export const HomeButton = styled.button`
   width: 150px;
