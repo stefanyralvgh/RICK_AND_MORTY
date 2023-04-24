@@ -1,0 +1,63 @@
+import Card from "../../components/Card/Card";
+import { connect, useDispatch } from "react-redux";
+import { FavsContainer, Container, Select, AllFavs } from "./FavoritesStyles";
+import { HomeImage } from "../Home/HomeStyles";
+import { DetailButton } from "../Detail/DetailStyles";
+import { useNavigate } from "react-router-dom";
+import { filterCards, orderCards, resetFilters } from "../../redux/actions/actions";
+export function Favorites({ myFavorites }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+ 
+  return (
+    <div>
+      <Container>
+        <Select name='order' defaultValue={''} onChange={(e)=>dispatch(orderCards(e.target.value))}>
+          <option value="" disabled >Sort By</option>
+          <option value="Lowest to highest">Lowest to highest</option>
+          <option value="Highest to lowest">Highest to lowest</option>
+        </Select>
+        <Select name="filter" defaultValue={''} onChange={(e)=>dispatch(filterCards(e.target.value))} >
+          <option value="" disabled >Filter by Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Genderless">Genderless</option>
+          <option value="unknown">unknown</option>
+        </Select>
+        <AllFavs onClick={()=>dispatch(resetFilters())}>All Favorites</AllFavs>
+      </Container>
+      <FavsContainer>
+        {myFavorites.length === 0 ? (
+          <div>
+            <HomeImage src="./Images/RYM.png" alt="Rick y Morty" />
+          </div>
+        ) : (
+          myFavorites.map((char) => (
+            <Card
+              id={char.id}
+              name={char.name}
+              species={char.species}
+              gender={char.gender}
+              image={char.image}
+              key={char.id}
+              myFavorites={myFavorites}
+            />
+          ))
+        )}
+      </FavsContainer>
+        <div>
+          <DetailButton onClick={() => navigate("/home")}>⤺ Home</DetailButton>
+        </div>
+    </div>
+  );
+}
+
+export function mapStateToProps(state) {
+  return {
+    myFavorites: state.myFavorites,
+    allCharacters: state.allCharacters,
+  };
+}
+
+export default connect(mapStateToProps, null)(Favorites);

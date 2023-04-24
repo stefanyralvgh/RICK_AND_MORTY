@@ -1,0 +1,23 @@
+{
+  "name": "rick_y_morty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stefanyralvgh/RICK-Y-MORTY.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stefanyralvgh/RICK-Y-MORTY/issues"
+  },
+  "homepage": "https://github.com/Stefanyralvgh/RICK-Y-MORTY#readme",
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
