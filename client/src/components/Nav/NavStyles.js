@@ -4,21 +4,30 @@ import { Link } from "react-router-dom";
 
 
 export const NavContainer = styled.nav `
-  background-color: transparent;
-  height: 70px;
+  background-color: #271538;  
+  height: 65px;
   display: flex;
   align-items: center;
-  position: relative; 
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
   
   @media screen and (max-width: 767px) {
     display: flex;
     flex-direction: column;
     align-items:center;
     height: 120px;
+    justify-content: space-between;
+    gap: 20px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    width: 95vw;
+    width: 110vw;
+    justify-content: space-between;
+    
   }
 `;
 
@@ -52,9 +61,22 @@ export const FavsLink = styled(Link)`
     margin-left: 17px;
    
 
+    /* @media screen and (max-width: 767px) {
+      /* margin-left:12px; */
+      /* display: flex;
+    height: 120px;
+    } */
     @media screen and (max-width: 767px) {
-      margin-left:12px;
-    }
+    display: flex;
+    margin: 0px;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    justify-content: center;
+    
+  } 
 `
 
 
@@ -63,15 +85,24 @@ export const LogOutButton = styled.button`
   top: 0;
   right: 0;
   padding: 0.5rem;
+  margin: 10px;
   border-radius: 5px;
   border: solid;
   color: white;
   font-size: 9px ;
   cursor: pointer;
   background-color:transparent ;
-   
+  transition: transform 0.2s;
 
-  &:hover {
-    font-size:8px;
-}
+    &:active {
+      transform: scale(0.9);
+    }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    right: 150px;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
 `;

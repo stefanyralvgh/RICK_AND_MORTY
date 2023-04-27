@@ -1,28 +1,13 @@
 import styled from "styled-components";
 
 
-
-// export const SearchImage = styled.img `
-//     width: 130px;
-//     display: flex ;
-//     margin-top: 28px;
-// `;
-
-/* si la activo, esto va en searchcontainer, bajo search input en hover ${SearchImage}{
-        width: 160px;
-        margin-top: 12px;
-        transition: 1s;
-    } */
-
-
 export const SearchInput = styled.input `
   background: none;
   width: 240px;
-  color: #ddd9e0;
+  color: white;
+  border-color: transparent;
   height: 40px;
   padding: 15px 20px;
-  border-color: #b1a9bc;
-  /* margin-left:200px; */
   border-radius: 30px 0px 0px 30px;
   transition: 1s;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -30,7 +15,7 @@ export const SearchInput = styled.input `
 
   @media screen and (max-width: 767px) {
     display: flex;
-    margin-left: 300px;
+    margin-left: 400px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -50,8 +35,7 @@ export const SearchBtn = styled.button `
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: 0.8s;
-      
+          
 `;
 
 export const RandomBtn = styled.button `
@@ -65,16 +49,23 @@ export const RandomBtn = styled.button `
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  transition: transform 0.2s;
+    
+  &:active {
+      transform: scale(0.9);
+      border: transparent;
+    }
 
   img {
     height: 70px;
-    &:hover{
-        height: 67px;
+    &:active {
+      transform: scale(0.9);
     }
   }
 
   @media screen and (max-width: 767px) {
     justify-content: flex-end;
+
   }
 `;
 
@@ -90,7 +81,7 @@ export const SearchContainer = styled.div `
         transition:1s;
         animation: ease ;
         background: #ddd9e0;
-        color: blueviolet;
+        color:black ;
     }
    
     /* ${RandomBtn} {
@@ -104,12 +95,15 @@ export const SearchContainer = styled.div `
 
   @media screen and (max-width: 767px) {
     display: flex;
-    height: 120px;
+    height: 160px;
+    background-color: #271538;  
+    margin-bottom: 30px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 30vw;
-  
+    
+      
   }
 `;
 

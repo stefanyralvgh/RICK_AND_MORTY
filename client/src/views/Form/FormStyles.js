@@ -11,8 +11,9 @@ export const FormImage = styled.img `
 `;
 
 export const FormErrors = styled.p`
-    color: red;
+    color: #800000;
     margin: 0px 3px 3px 0px;
+    max-width: 160px;
 `;
 
 

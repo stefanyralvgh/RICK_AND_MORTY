@@ -2,14 +2,11 @@ import Card from "../../components/Card/Card";
 import { connect, useDispatch } from "react-redux";
 import { FavsContainer, Container, Select, AllFavs } from "./FavoritesStyles";
 import { HomeImage } from "../Home/HomeStyles";
-import { DetailButton } from "../Detail/DetailStyles";
-import { useNavigate } from "react-router-dom";
 import { filterCards, orderCards, resetFilters } from "../../redux/actions/actions";
-export function Favorites({ myFavorites }) {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
- 
+
+export function Favorites({ myFavorites }) {
+  const dispatch = useDispatch(); 
   return (
     <div>
       <Container>
@@ -46,9 +43,6 @@ export function Favorites({ myFavorites }) {
           ))
         )}
       </FavsContainer>
-        <div>
-          <DetailButton onClick={() => navigate("/home")}>⤺ Home</DetailButton>
-        </div>
     </div>
   );
 }

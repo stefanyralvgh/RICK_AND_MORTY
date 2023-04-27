@@ -5,6 +5,7 @@ export const HomeText = styled.h1 `
     font-size:2rem ;
     text-shadow: 2px 2px #333;
     padding-top: 70px;
+    width: 500px;
 
     @media screen and (max-width: 767px) {
         width: 100%;
@@ -18,7 +19,6 @@ export const HomeText = styled.h1 `
     }
 
     @media screen and (min-width: 1280px) {
-        width: 45%;
         max-width: 400px;
         margin: 0 auto;
     }

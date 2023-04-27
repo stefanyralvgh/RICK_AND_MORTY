@@ -2,6 +2,9 @@ import { useState } from "react";
 import validation from "./Validation.js";
 import { FormContainer, FormButton, FormLabel, FormInput, FormImage, FormErrors } from "./FormStyles.js";
 
+
+
+
 export default function Form(props) {
   const [userData, setUserData] = useState({
     email: "",
@@ -13,6 +16,8 @@ export default function Form(props) {
     password: "",
   });
 
+  const [loginError, setLoginError] = useState(false);
+
   const handleInputChange = (event) => {
     const property = event.target.name;
     const value = event.target.value;
@@ -22,12 +27,19 @@ export default function Form(props) {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.login(userData);
+    const validationErrors = validation(userData);
+    setErrors(validationErrors);
+    if (Object.keys(validationErrors).length > 0) {
+      setLoginError(true);
+    } else {
+      props.login(userData);
+      setLoginError(false);
+    }
   }
 
   return (
-   <FormContainer>
-        <form onSubmit={submitHandler}>
+    <FormContainer>
+      <form onSubmit={submitHandler}>
         <div>
           <FormImage src="./Images/RyM-Navbar.png" alt="Rick y Morty" />
           <FormInput
@@ -36,7 +48,7 @@ export default function Form(props) {
             onChange={handleInputChange}
             value={userData.email}
           />
-          <FormLabel htmlFor="email"> E-mail: </FormLabel>
+          <FormLabel htmlFor="email"> E-mail </FormLabel>
           {errors.email1 ? (
             <FormErrors>{errors.email1}</FormErrors>
             ) : errors.email2 ? (
@@ -56,19 +68,19 @@ export default function Form(props) {
             onChange={handleInputChange}
             value={userData.password}
           /> 
-           <FormLabel htmlFor="password"> Password: </FormLabel>
+          <FormLabel htmlFor="password"> Password </FormLabel>
           {errors.password1 ? (
             <FormErrors>{errors.password1}</FormErrors>
-        ) : (
+          ) : (
             <FormErrors>{errors.password2}</FormErrors>
-        )}
+          )}
        
         </div>
         <br />
-        <FormButton type="submit" onClick={submitHandler}>Login</FormButton>
+        {loginError && <FormErrors>Incorrect password or email</FormErrors>}
+        <FormButton type="submit">Login</FormButton>
       </form>
       <FormButton type="submit">Sign Up</FormButton>
-      {/* <HomeImage src="./Images/RYM.png" alt="Rick y Morty" /> */}
     </FormContainer>
   );
 }

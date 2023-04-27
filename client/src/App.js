@@ -51,20 +51,45 @@ function logout(){
     onSearch(randomChar);
   }
 
-  function onSearch(character) {
-    fetch(`http://localhost:3001/rickandmorty/character/${character}`)
-    // character
-      .then((response) => response.json())
+  // function onSearch(id) {
+  //   fetch(`http://localhost:3001/rickandmorty/character/${id}`)
+  //   // character
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (data.name) {
+  //         characters.find((element) => element.id === data.id) === undefined
+  //           ? setCharacters((characters) => [...characters, data])
+  //           : alert("Duplicate character, please try another ID");
+  //       } else {
+  //           alert("There are no characters with that ID.");
+  //       }
+  //     });
+  // }
+  function onSearch(id) {
+    fetch(`http://localhost:3001/rickandmorty/character/${id}`)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Network response was not ok");
+        }
+      })
       .then((data) => {
         if (data.name) {
           characters.find((element) => element.id === data.id) === undefined
             ? setCharacters((characters) => [...characters, data])
             : alert("Duplicate character, please try another ID");
-        } else {
-          alert("There are no characters with that ID.");
-        }
+        } //else {
+        //   alert("There are no characters with that ID.");
+        // }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("There are no characters with that ID.");
       });
   }
+
+
   return (
     <div className='App' style={{ padding: '25px' }}>
      {pathname !== '/' && <Nav onSearch={onSearch} random={random} logout={logout}/>}

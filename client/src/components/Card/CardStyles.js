@@ -53,16 +53,20 @@ export const NameLink = styled(Link)
 export const Species = styled.h2 `
     font-weight: lighter;
     color: #4e2970;
-    float: left;
-    margin-left: 60px;
+    /* float: left; */
+    display: inline-block;
+    margin: 0px 60px 15px 5px;
+    max-width: 40px;
+    
 `;
 
 
 export const Gender = styled.h2 `
     font-weight: lighter;
     color: #4e2970;
-    float: right;
-    margin-right: 60px;
+    display: inline-block;
+    margin: 0px 5px 15px 60px;
+    
 `;
 
 

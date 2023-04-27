@@ -1,22 +1,22 @@
 const validation = (input) => {
     let errors = {};
-    // Validación del campo de usuario
+    
     if (!input.email) {
-      errors.email1 = "E-mail vacío";
+      errors.email1 = "Email is required";
     } else if (!/^[\w-]+@([\w-]+\.)+[\w-]{3}$/.test(input.email)) {
-      errors.email2 = "E-mail inválido";
+      errors.email2 = "Invalid email";
     } else if (input.email.length > 35) {
-      errors.email3 = "El nombre de usuario no puede tener más de 35 caracteres";
+      errors.email3 = "Username can't be longer than 35 characters";
     }
   
-    // Validación del campo de contraseña
+    
    if(!input.password) {
-        errors.password1 = "Password vacía";
+        errors.password1 = "Password is required";
       } else if(input.password.length < 6 || input.password.length > 10) {
-        errors.password2 = "La contraseña debe tener entre 6 y 10 caracteres";
+        errors.password2 = "Password must be between 6 and 10 characters";
       } else if (!/\d/.test(input.password)) {
-        errors.password = "La contraseña debe contener al menos un número";
-      }  
+        errors.password = "Password must contain at least one number";
+      } 
     return errors;
   }
 

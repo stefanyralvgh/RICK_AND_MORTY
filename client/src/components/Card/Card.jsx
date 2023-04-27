@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { addFavs, deleteFavs } from "../../redux/actions/actions";
-import { useEffect, useState } from "react";
+import { useEffect, useState, } from "react";
 import {
   CardContenedor,
   CloseButtonCard,
@@ -14,7 +14,7 @@ import {
 
 export function Card(props) {
   const [isFav, setIsFav] = useState(false);
-
+ 
   useEffect(() => {
     props.myFavorites &&
       props.myFavorites.forEach((fav) => {
@@ -35,6 +35,8 @@ export function Card(props) {
       setIsFav(true);
       props.addFavs(props);
     }
+
+    
   }
 
   return (
@@ -77,6 +79,8 @@ export function mapDispatchToProps(dispatch) {
       dispatch(deleteFavs(id));
     },
   };
+
+  
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
