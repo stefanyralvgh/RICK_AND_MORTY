@@ -16,8 +16,14 @@ export const Select = styled.select`
   margin-right: 20px;
   margin-top: 80px;
   padding: 10px;
+  height: 38px;
+  width: 95px;
   cursor: pointer;
   color: #584d66;
+  z-index: 4;
+        right: 1.5em;
+        top: 1.6em;
+        color: #584d66;
   @media screen and (max-width: 767px) {
     margin-top: 200px;
     display: block;

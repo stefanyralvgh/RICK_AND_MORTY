@@ -6,8 +6,11 @@ import {
   DetailButton,
   DetailTexts,
 } from "./DetailStyles";
+import { BiArrowBack } from "react-icons/bi";
+import Loading from "../Loading/Loading";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+
 
 export default function Detail() {
   const { detailId } = useParams();
@@ -19,11 +22,11 @@ export default function Detail() {
     origin: "",
     image: "",
   });
- 
+  const [isLoading, setIsLoading] = useState(true)
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:3001/rickandmorty/character/${detailId}`)
+    fetch(`http://localhost:3001/rickandmorty/character/${detailId}`)    
     // detailId
       .then((response) => response.json())
       .then((char) => {
@@ -36,51 +39,68 @@ export default function Detail() {
             origin: char.origin.name,
             image: char.image,
           });
+          
         } else {
-          window.alert("No hay personajes con ese ID");
+          window.alert("There are not characters with that ID");
         }
       })
       .catch((err) => {
-        window.alert("No hay personajes con ese ID");
-      });
+        window.alert("ERROR");
+      })       
+      
+    setIsLoading(false);
     return setCharacter({});
   }, [detailId]);
 
+
   return (
     <div>
-        <DetailContainer>
-            <DetailInfo>
-                {character.name && (
+        {isLoading === true ? (
+            <Loading />
+        ) : (
+          <div>
+              <DetailContainer>
+                <DetailInfo>
+                  {character.name && (
                     <DetailTexts>
-                        <DetailTitles>Name:</DetailTitles> {character.name}
+                      <DetailTitles>Name:</DetailTitles> {character.name}
                     </DetailTexts>
-                )}
-                {character.status && (
+                  )}
+                  {character.status && (
                     <DetailTexts>
-                        <DetailTitles>Status:</DetailTitles> {character.status}
+                      <DetailTitles>Status:</DetailTitles> {character.status}
                     </DetailTexts>
-                )}
-                {character.species && (
+                  )}
+                  {character.species && (
                     <DetailTexts>
-                        <DetailTitles>Specie:</DetailTitles> {character.species}
+                      <DetailTitles>Specie:</DetailTitles> {character.species}
                     </DetailTexts>
-                )} 
-                {character.gender && (
+                  )}
+                  {character.gender && (
                     <DetailTexts>
-                        <DetailTitles>Gender:</DetailTitles> {character.gender}
+                      <DetailTitles>Gender:</DetailTitles> {character.gender}
                     </DetailTexts>
-                )}
-                {character.origin && (
+                  )}
+                  {character.origin && (
                     <DetailTexts>
-                        <DetailTitles>Origin:</DetailTitles> {character.origin} {/*acá podía ser character.origin?.name*/}
+                      <DetailTitles>Origin:</DetailTitles>{" "}
+                      {character.origin} {/*acá podía ser character.origin?.name*/}
                     </DetailTexts>
-                )}
-            </DetailInfo>
-            <DetailImage src={character.image} alt={`Imagen de ${character.name}`} />
-        </DetailContainer>
-        <DetailButton onClick={() => navigate('/home')}>⤺ Home</DetailButton>
-    </div>
-);
+                  )}
+                </DetailInfo>
+                <DetailImage
+                  src={character.image}
+                  alt={`Imagen de ${character.name}`}
+                />
+              </DetailContainer>
+              <DetailButton onClick={() => navigate("/home")}><BiArrowBack /> Back</DetailButton>
+            </div>
+      )}  
+    
+   </div>
+  )
 }
 
 
+
+ 

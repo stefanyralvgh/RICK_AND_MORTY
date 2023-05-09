@@ -25,17 +25,20 @@ export const SearchInput = styled.input `
 `;
 
 export const SearchBtn = styled.button `
-  background: #b1a9bc;
+  background-color: #b1a9bc;
+  color: #625671;
+  font-size: 16px;
   height: 40px;
   width: 20px;
   border: none;
   border-radius: 0px 30px 30px 0px;
   padding: 10px 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
-          
+ 
 `;
 
 export const RandomBtn = styled.button `

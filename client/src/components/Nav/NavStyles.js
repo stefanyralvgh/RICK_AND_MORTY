@@ -36,6 +36,10 @@ export const HomeLink = styled(Link)
     width: 30px;
     text-decoration: none;
     color: #dccdf8;
+    &:hover {
+      color: #8776a2; 
+      cursor: pointer; 
+  }
 `;
 
 export const AboutLink = styled(Link)
@@ -45,27 +49,31 @@ export const AboutLink = styled(Link)
     text-decoration: none;
     color: #dccdf8;
 
+    &:hover {
+      color: #8776a2; 
+      cursor: pointer; 
+  }
     @media screen and (max-width: 767px) {
       margin-left:12px;
+      &:hover {
+        color: #8776a2; 
+        cursor: pointer; 
+      }
     }
 `;
 
 export const FavsLink = styled(Link)`
-    color: #41225e;
+    color: #f5e2ff;
     text-decoration: none;
     height: 25px;
     width: 90px;
     border-radius: 20px;
-    background-color: #dccdf8;
     margin: auto;
-    margin-left: 17px;
+    margin-left: 7px;
+    margin-top: 22px;
+    font-size: 20px;
    
 
-    /* @media screen and (max-width: 767px) {
-      /* margin-left:12px; */
-      /* display: flex;
-    height: 120px;
-    } */
     @media screen and (max-width: 767px) {
     display: flex;
     margin: 0px;
@@ -86,23 +94,22 @@ export const LogOutButton = styled.button`
   right: 0;
   padding: 0.5rem;
   margin: 10px;
-  border-radius: 5px;
-  border: solid;
+  
+ 
+  border: transparent;
   color: white;
-  font-size: 9px ;
+  font-size: 25px ;
   cursor: pointer;
   background-color:transparent ;
-  transition: transform 0.2s;
-
-    &:active {
-      transform: scale(0.9);
+ 
+    span{
+      display: flex;
+      flex-direction: column;
+      font-size: 9px;
     }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     right: 150px;
   }
 
-  &:active {
-    transform: scale(0.9);
-  }
-
+ 
 `;

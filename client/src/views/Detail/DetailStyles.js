@@ -47,7 +47,7 @@ export const DetailButton = styled.button`
   padding: 10px 20px;
   display: flex;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 45px;
   padding: 0.5rem;
   font-size: smaller;
   border-radius: 5px;

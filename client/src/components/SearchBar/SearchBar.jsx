@@ -6,6 +6,7 @@ import {
   RandomBtn,
   SearchContainer,
 } from "./SearchBarStyles";
+import { BiSearch } from "react-icons/bi";
 
 export default function SearchBar(props) {
   const [inputContent, setInputContent] = useState("");
@@ -39,7 +40,7 @@ export default function SearchBar(props) {
           onKeyDown={handleInputKeyDown}
         ></SearchInput>
 
-        <SearchBtn onClick={handleSearchClick}>🔍</SearchBtn>
+        <SearchBtn onClick={handleSearchClick}><BiSearch /></SearchBtn>
         <RandomBtn onClick={props.random}>
           {/* <img src="./Images/gunnn.png" alt="Random button" /> */}
           <img src="./Images/Home.png" alt="Random button" />

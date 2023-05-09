@@ -10,28 +10,45 @@ import Favorites from './views/Favorites/Favorites';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { deleteFavs } from './redux/actions/actions';
+import axios from 'axios';
+
+
 
 function App () {
   const { pathname } = useLocation();
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
-  const email = 'ejemplo@mail.com';
-  const password = '1password';
+  // const email = 'ejemplo@mail.com';
+  // const password = '1password';
   const dispatch =useDispatch();
 
 
   
+
   useEffect(() => {
     !access && navigate('/');
  }, [access, navigate]);
 
+ 
+
+// function login(userData) {
+//    if (userData.password === password && userData.email === email) {
+//       setAccess(true);
+//       navigate('/home');
+//    }
+// }
 
 function login(userData) {
-   if (userData.password === password && userData.email === email) {
-      setAccess(true);
-      navigate('/home');
-   }
+  const { email, password } = userData;
+  const URL = 'http://localhost:3001/rickandmorty/login/';
+  axios.get(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+    //  const { access } = data;
+     setAccess(data);
+     if(access) {
+      navigate('/home')
+     };
+  });
 }
 
 function logout(){
@@ -51,20 +68,6 @@ function logout(){
     onSearch(randomChar);
   }
 
-  // function onSearch(id) {
-  //   fetch(`http://localhost:3001/rickandmorty/character/${id}`)
-  //   // character
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (data.name) {
-  //         characters.find((element) => element.id === data.id) === undefined
-  //           ? setCharacters((characters) => [...characters, data])
-  //           : alert("Duplicate character, please try another ID");
-  //       } else {
-  //           alert("There are no characters with that ID.");
-  //       }
-  //     });
-  // }
   function onSearch(id) {
     fetch(`http://localhost:3001/rickandmorty/character/${id}`)
       .then((response) => {
@@ -79,9 +82,17 @@ function logout(){
           characters.find((element) => element.id === data.id) === undefined
             ? setCharacters((characters) => [...characters, data])
             : alert("Duplicate character, please try another ID");
-        } //else {
-        //   alert("There are no characters with that ID.");
-        // }
+            // window.scrollTo({
+            //   top: document.documentElement.scrollHeight,
+            //   behavior: "smooth",
+            // });
+            setTimeout(function() {
+              window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behavior: "auto"
+              });
+            }, 500);
+        } 
       })
       .catch((error) => {
         console.error("Error:", error);

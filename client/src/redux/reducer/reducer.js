@@ -7,22 +7,28 @@ const initialState = {
 
  const rootReducer = (state = initialState, action) =>{
     switch(action.type) {
-        case ADD_FAVS:
+        // case ADD_FAVS:
 
-          let copy1 = state.allCharacters;
-          copy1.push(action.payload);
-        return {
+        //   let copy1 = state.allCharacters;
+        //   copy1.push(action.payload);
+        // return {
             
-             ...state, 
-             myFavorites: copy1, allCharacters: copy1 
-            };
+        //      ...state, 
+        //      myFavorites: copy1, allCharacters: copy1 
+        //     };
+
+        case ADD_FAVS:
+            return { 
+              ...state, myFavorites: action.payload, 
+              allCharacters: action.payload };
 
         case DELETE_FAVS: 
-            return {
-                ...state,
-                allCharacters: state.allCharacters.filter((char) => char.id !== action.payload),
-                myFavorites: state.myFavorites.filter((char) => char.id !== action.payload),
-            };
+            // return {
+            //     ...state,
+            //     allCharacters: state.allCharacters.filter((char) => char.id !== action.payload),
+            //     myFavorites: state.myFavorites.filter((char) => char.id !== action.payload),
+            // };
+            return { ...state, myFavorites: action.payload };
                     
 
         case FILTER:

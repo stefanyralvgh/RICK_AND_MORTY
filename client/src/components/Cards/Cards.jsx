@@ -2,8 +2,11 @@ import Home from "../../views/Home/Home";
 import Card from "../Card/Card";
 import style from "./Cards.module.css";
 
+
 export default function Cards(props) {
   const { characters } = props;
+
+
 
   return (
     <div className={style.CardsContainer}>
@@ -30,3 +33,4 @@ export default function Cards(props) {
       
   
 }
+

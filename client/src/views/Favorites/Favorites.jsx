@@ -3,6 +3,8 @@ import { connect, useDispatch } from "react-redux";
 import { FavsContainer, Container, Select, AllFavs } from "./FavoritesStyles";
 import { HomeImage } from "../Home/HomeStyles";
 import { filterCards, orderCards, resetFilters } from "../../redux/actions/actions";
+import { BiFilterAlt } from "react-icons/bi";
+
 
 
 export function Favorites({ myFavorites }) {
@@ -16,13 +18,13 @@ export function Favorites({ myFavorites }) {
           <option value="Highest to lowest">Highest to lowest</option>
         </Select>
         <Select name="filter" defaultValue={''} onChange={(e)=>dispatch(filterCards(e.target.value))} >
-          <option value="" disabled >Filter by Gender</option>
+          <option value="" disabled ><BiFilterAlt /> Gender</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
           <option value="Genderless">Genderless</option>
           <option value="unknown">unknown</option>
         </Select>
-        <AllFavs onClick={()=>dispatch(resetFilters())}>All Favorites</AllFavs>
+        <AllFavs onClick={()=>dispatch(resetFilters())}>Show All</AllFavs>
       </Container>
       <FavsContainer>
         {myFavorites.length === 0 ? (
