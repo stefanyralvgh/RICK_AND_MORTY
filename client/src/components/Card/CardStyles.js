@@ -43,7 +43,7 @@ export const FavButtonCard = styled.button `
 export const NameLink = styled(Link) 
 `
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bolder;
     color:#1d0f2a;
     text-shadow: 2px 4px 8px #ffffbf;
@@ -55,7 +55,7 @@ export const Species = styled.h2 `
     color: #4e2970;
     display: inline-block;
     margin: 0px 60px 15px 5px;
-    max-width: 60px;
+    max-width: 30px;
     
 `;
 
@@ -72,15 +72,15 @@ export const Gender = styled.h2 `
 export const ImgCardContenedor = styled.img `
     filter: blur(0.4px);
     border-radius: 50%;
-    max-width: 280px;
-    max-height: 280px;
+    max-width: 240px;
+    max-height: 240px;
   
  
 `;
 
 export const CardContenedor = styled.div `
     border-radius: 16px;
-    padding: 20px;
+    padding: 10px;
     margin-top: 10px;
     display: inline-block;
     background-color: #8b7f9c;
@@ -88,7 +88,9 @@ export const CardContenedor = styled.div `
     font-size: 13px;
     text-align: center;
     position: relative;
-    max-width: 18.8rem;
+    max-width: 18rem;
+    max-height: 27rem;
+
     color:#271438 ;
     &:hover {
         background: rgba(255, 255, 255, 0);

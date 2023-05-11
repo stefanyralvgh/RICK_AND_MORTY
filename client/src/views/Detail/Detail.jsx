@@ -39,18 +39,21 @@ export default function Detail() {
             origin: char.origin.name,
             image: char.image,
           });
+          console.log(char);
           
         } else {
           window.alert("There are not characters with that ID");
         }
       })
       .catch((err) => {
-        window.alert("ERROR");
+        window.alert("hello");
       })       
       
     setIsLoading(false);
     return setCharacter({});
   }, [detailId]);
+  
+  
 
 
   return (

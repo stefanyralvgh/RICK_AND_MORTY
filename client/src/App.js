@@ -18,12 +18,15 @@ function App () {
   const { pathname } = useLocation();
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
+  
   const navigate = useNavigate();
-  // const email = 'ejemplo@mail.com';
-  // const password = '1password';
   const dispatch =useDispatch();
 
-
+  useEffect(() => {
+    if (access && pathname === '/') {
+      navigate('/home');
+    }
+  }, [access, navigate, pathname]);
   
 
   useEffect(() => {
@@ -31,25 +34,29 @@ function App () {
  }, [access, navigate]);
 
  
-
-// function login(userData) {
-//    if (userData.password === password && userData.email === email) {
-//       setAccess(true);
-//       navigate('/home');
-//    }
-// }
-
-function login(userData) {
+async function login(userData) {
   const { email, password } = userData;
   const URL = 'http://localhost:3001/rickandmorty/login/';
-  axios.get(URL + `?email=${email}&password=${password}`).then(({ data }) => {
-    //  const { access } = data;
-     setAccess(data);
-     if(access) {
-      navigate('/home')
-     };
-  });
+  // try {
+  //   const { data } = await axios.get(`${URL}?email=${email}&password=${password}`);
+  //   setAccess(data);
+  //   if (access) {
+  //     navigate('/home');
+  //   }
+  // } catch (error) {
+  //   console.error("Error:", error);
+  //   alert("An error occurred while trying to login.");
+  // }
+  try {
+    const { data } = await axios.get(`${URL}?email=${email}&password=${password}`);
+    setAccess(data);
+  } catch (error) {
+    console.error("Error:", error);
+    alert("An error occurred while trying to login.");
+  }
 }
+
+ 
 
 function logout(){
   setAccess(false);
@@ -68,36 +75,31 @@ function logout(){
     onSearch(randomChar);
   }
 
-  function onSearch(id) {
-    fetch(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error("Network response was not ok");
-        }
-      })
-      .then((data) => {
+
+  async function onSearch(id) {
+    try {
+      const response = await fetch(`http://localhost:3001/rickandmorty/character/${id}`);
+      if (response.ok) {
+        const data = await response.json();
         if (data.name) {
           characters.find((element) => element.id === data.id) === undefined
             ? setCharacters((characters) => [...characters, data])
             : alert("Duplicate character, please try another ID");
-            // window.scrollTo({
-            //   top: document.documentElement.scrollHeight,
-            //   behavior: "smooth",
-            // });
-            setTimeout(function() {
-              window.scrollTo({
-                top: document.documentElement.scrollHeight,
-                behavior: "auto"
-              });
-            }, 500);
+
+          setTimeout(function() {
+            window.scrollTo({
+              top: document.documentElement.scrollHeight,
+              behavior: "auto"
+            });
+          }, 500);
         } 
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("There are no characters with that ID.");
-      });
+      } else {
+        throw new Error("Network response was not ok");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("There are no characters with that ID.");
+    }
   }
 
 
