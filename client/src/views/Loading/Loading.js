@@ -1,11 +1,21 @@
+import { Spinner, LoadingText } from './LoadingStyles';
+
 
 
 export default function Loading () {
 
-    return (
-        <div>
-            <p>LOADING</p>
-        </div>
-    )
+  return (
+    <div>
+      <div>
+        <Spinner />
+      </div>
+      <LoadingText>Loading</LoadingText>
+    
+      
+    </div>
+
+   
+  );
 }
+
 
