@@ -37,16 +37,7 @@ function App () {
 async function login(userData) {
   const { email, password } = userData;
   const URL = 'http://localhost:3001/rickandmorty/login/';
-  // try {
-  //   const { data } = await axios.get(`${URL}?email=${email}&password=${password}`);
-  //   setAccess(data);
-  //   if (access) {
-  //     navigate('/home');
-  //   }
-  // } catch (error) {
-  //   console.error("Error:", error);
-  //   alert("An error occurred while trying to login.");
-  // }
+  
   try {
     const { data } = await axios.get(`${URL}?email=${email}&password=${password}`);
     setAccess(data);
