@@ -1,31 +1,27 @@
 import styled from "styled-components";
 
-export const FormImage = styled.img `
-    width: 130px;
-    margin-bottom:-10px;
-    margin-left: 25px;
-    display: flex;
-    flex-direction: column ;
-   
-   
+export const FormImage = styled.img`
+  width: 130px;
+  margin-bottom: -10px;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const FormErrors = styled.p`
-    color: #800000;
-    margin: 0px 3px 3px 0px;
-    max-width: 160px;
+  color: #800000;
+  margin: 0px 3px 3px 0px;
+  max-width: 160px;
 `;
 
-
 export const FormContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f0e8fc;
-    width: 250px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0e8fc;
+  width: 250px;
 
   @media screen and (max-width: 767px) {
     width: 90%;
@@ -45,12 +41,12 @@ export const FormContainer = styled.div`
     max-width: 400px;
     margin: 0 auto;
   }
-  `;
+`;
 
 export const FormLabel = styled.label`
   font-weight: bold;
   display: flex;
-  flex-direction:column ;
+  flex-direction: column;
 `;
 
 export const FormInput = styled.input`
@@ -67,7 +63,6 @@ export const FormButton = styled.button`
   color: white;
   cursor: pointer;
   margin: 1rem;
-  
 
   &:hover {
     background-color: #ccccff;

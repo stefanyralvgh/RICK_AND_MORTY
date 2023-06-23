@@ -91,7 +91,7 @@ export default function Detail() {
                   {character.origin && (
                     <DetailTexts>
                       <DetailTitles>Origin:</DetailTitles>{" "}
-                      {character.origin} {/*acá podía ser character.origin?.name*/}
+                      {character.origin}
                     </DetailTexts>
                   )}
                 </DetailInfo>

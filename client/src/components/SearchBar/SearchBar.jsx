@@ -13,7 +13,7 @@ export default function SearchBar(props) {
 
   function handleSearch(event) {
     let { value } = event.target;
-    setInputContent(value);    
+    setInputContent(value);
   }
 
   const handleInputKeyDown = (event) => {
@@ -28,24 +28,23 @@ export default function SearchBar(props) {
     props.onSearch(inputContent);
     setInputContent("");
   };
- 
-  return (
-      <SearchContainer>
-        {/* <SearchImage src="./Images/RyM-Navbar.png" alt="Rick y Morty" /> */}
-        <SearchInput
-          type="search"
-          placeholder="Character ID"
-          value={inputContent}
-          onChange={handleSearch}
-          onKeyDown={handleInputKeyDown}
-        ></SearchInput>
 
-        <SearchBtn onClick={handleSearchClick}><BiSearch /></SearchBtn>
-        <RandomBtn onClick={props.random}>
-          {/* <img src="./Images/gunnn.png" alt="Random button" /> */}
-          <img src="./Images/Home.png" alt="Random button" />
-        </RandomBtn>
-      </SearchContainer>
-   
+  return (
+    <SearchContainer>
+      <SearchInput
+        type="search"
+        placeholder="Character ID"
+        value={inputContent}
+        onChange={handleSearch}
+        onKeyDown={handleInputKeyDown}
+      ></SearchInput>
+
+      <SearchBtn onClick={handleSearchClick}>
+        <BiSearch />
+      </SearchBtn>
+      <RandomBtn onClick={props.random}>
+        <img src="./Images/Home.png" alt="Random button" />
+      </RandomBtn>
+    </SearchContainer>
   );
 }
