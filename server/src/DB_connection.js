@@ -1,4 +1,4 @@
-require("dotenv").config({ path: ".env" });
+require('dotenv').config();
 
 const { Sequelize } = require("sequelize");
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
@@ -6,18 +6,9 @@ const UserModel = require("./models/User");
 const FavoriteModel = require("./models/Favorite");
 
 // URL ----> postgres://DB_USER:DB_PASSWORD@DB_HOST/rickandmorty
-console.log(
-  "DB_HOST:",
-  DB_HOST,
-  "DB_USER:",
-  DB_USER,
-  "DB_PASSWORD:",
-  DB_PASSWORD
-);
+
 const sequelize = new Sequelize(
-  `postgres://postgres:admin@localhost:5432/rickandmorty`,
-  //NO ME FUNCIONAN LAS VARIABLES DE ENTORNO || PENDIENTE ARREGLAR
-  // `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/rickandmorty`,
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/rickandmorty`,
   { logging: false, native: false }
 );
 
